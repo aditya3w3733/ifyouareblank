@@ -18,7 +18,7 @@ if index_name not in pinecone.list_indexes().names():
 
 index = pinecone.Index(name=index_name)
 
-def load_system_message(file_path='system_message.txt'):
+def load_system_message(file_path='original_system_message.txt'):
     with open(file_path, 'r') as file:
         return file.read()
 
@@ -85,10 +85,23 @@ def main():
     matches = results.get('matches', [])
     if matches:
         recommendations = extract_recommendations(matches)
-        print("Movie Recommendations:")
+        movie_list = ', '.join([rec.split(' (')[0] for rec in recommendations])  #extract movie titles
+
+        refinement_prompt = f"User expressed interest in: {user_input}.Based on users preferences and the themes reflected in their query, please refine the following list of movie recommendations(don;t include anything not on this list) and suggest the top 15 best fits: {movie_list}"
+
+        refined_response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": refinement_prompt}
+            ],
+            max_tokens=250
+        )
+
+        refined_recommendations = refined_response.choices[0].message['content'].strip()
+        print("Movie Recommendations:\n")
         print(structured_query)
-        for recommendation in recommendations:
-            print(recommendation)
+        print(refined_recommendations)
+        print(recommendations)
     else:
         print("No recommendations found.")
 
