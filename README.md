@@ -7,7 +7,7 @@ IfYouAreBlank is a sophisticated movie recommendation system that leverages a co
 
 ## Features
 - Narrative-Driven Queries: Accepts user input in a freeform narrative style to capture detailed preferences.
-- Advanced NLP Models: Utilizes GPT-3.5 Turbo for understanding and processing user queries.
+- Advanced NLP Models: Utilizes Open-AI's GPT-3.5 Turbo for understanding and processing user queries.
 - Vector Database: Employs Pinecone to manage and retrieve movie data efficiently through vector embeddings.
 - Dynamic Interaction: Allows iterative query refinement to hone in on user preferences for more accurate recommendations.
 
@@ -56,3 +56,7 @@ Positive Actors: None<br>
 Negative Actors: None<br>
 
 ![image](https://github.com/aditya3w3733/ifyouareblank/assets/104208359/bcdec639-3f98-44b2-a221-b18df1c9b227)
+
+
+## Future Enhancements
+- This project can be made into a web app for better accessibility.
