@@ -1,5 +1,3 @@
-# ifyouareblank
-
 # IfYouAreBlank: RAG-Based Movie Recommendation System
 ## Introduction
 IfYouAreBlank is a sophisticated movie recommendation system that leverages a combination of OpenAI's GPT-3.5 Turbo, text-embedding-3-small model, and Pinecone's vector database to deliver narrative-driven movie suggestions. Inspired by queries from Reddit's r/MovieSuggestions, this system allows users to input detailed descriptions of their movie preferences, and utilizes a RAG system to generate tailored movie recommendations.
